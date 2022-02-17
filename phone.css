@@ -1,0 +1,314 @@
+
+table { 
+  border-collapse: collapse; 
+    font-family: Verdana, Arial, sans-serif;
+	font-size:small;
+  
+}
+
+/* Zebra striping  */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+ 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+
+}
+
+.nav1{
+	display:inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #FFFFFF;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:'Verdana',sans-serif;
+	font-weight:300;
+	color:#333333;
+	text-align:center;
+	transition: all 0.2s;
+}
+.nav1:hover{
+	color:#000000;
+		background-color:#CCCCCC;
+}
+@media all and (max-width:30em){
+	.nav1{
+		display:block;
+		margin:0.4em auto;
+	}
+}
+
+		
+
+div.ptitle{
+	display:block;
+	padding-top:5px; 
+	margin-bottom:5px;
+}
+
+.headertext {
+	color:#ffff; 
+	text-decoration:inherit;
+}
+
+.redheader {
+	padding-top:3px; 
+	padding-bottom:0px; 
+	width:100%; 
+	background-color:#922; 
+	color: #fff; 
+	display: flex; 
+	flex-wrap: nowrap; 
+	align-content:stretch;
+	text-decoration: none;
+}
+
+div.error {
+	color:red;
+}
+	
+	
+.boxsizingBorder {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+}	
+
+.textareaContainer {
+	display: block;
+	border: 3px solid #38c;
+	padding: 10px;
+}
+		
+#resp-table {
+	
+	display: table;
+	border-collapse:separate;
+	width: inherit;
+	border-collapse: collapse;	
+	font-family: Verdana, Arial, sans-serif;
+	font-size:small;
+}
+
+
+#resp-table-body{
+	display: table-row-group;
+	width: inherit;
+}
+
+#box{
+	width: 100%;
+	display: table;
+}
+
+.boxrow{
+	width: inherit;
+}
+
+.row{
+	display: table-row;
+}
+	
+div.container>div:nth-of-type(odd) {
+	background: #e0e0e0;
+}
+
+.padding {
+
+	border-spacing: 20px;
+	padding-top:20px;
+	padding-left: 40px;
+}
+
+.cell{
+	display: table-cell;
+	min-width: 40px;
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: left;
+	width:inherit;
+}
+
+.cellwide{
+	display: table-cell;
+	min-width: 380px;
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: left;
+	width:100%;
+}
+
+.cellnarrow{
+	display: table-cell;
+	min-width: 40px;
+	height: 20px;
+	padding: 2px; 
+	text-align: left;
+	width:inherit;
+	
+}
+
+.cellnarrow2{
+	display: table-cell;
+	min-width: 40px;
+	height: 20px;
+	padding: 2px; 
+	text-align: center;
+	align-items: center;
+	width:inherit;
+	font-size:smaller;	
+}
+.cellnarrow-c{
+	display: table-cell;
+	min-width: 40px;
+	height: 20px;
+	padding: 2px; 
+	text-align: center;
+	align-items: center;
+	width:55px;
+	font-size:smaller;	
+	
+}
+.cellnarrow-c2{
+	display: table-cell;
+	min-width: 40px;
+	height: 20px;
+	padding: 2px; 
+	text-align: center;
+	align-items: center;
+	width:55px;
+	font-size:smaller;	
+	background-color: #DDDDDD;
+}
+.cellnarrow-total{
+	display: table-cell;
+	min-width: 40px;
+	height: 20px;
+	padding: 2px; 
+	padding-left:12px;
+	border-top:1px solid black;
+	text-align: left;
+	align-items: center;
+	width:55px;
+	font-size:smaller;
+	vertical-align: top;	
+	
+}
+
+.bordered{
+	
+}
+
+.header {
+	padding-top:5px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}	
+
+
+.accordion {
+  background-color: #FFFFFF;
+  color: #444;
+  cursor: pointer;
+  padding: 9px;
+  width: 90%;
+  text-align: left;
+  font-family: Verdana,sans-serif;
+  font-size: 11pt;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #CCC;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 12px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.accordion2 {
+  background-color: #FFFFFF;
+  color: #444;
+  cursor: pointer;
+  padding: 6px;
+  width: 90%;
+  text-align: left;
+  font-family: Verdana,sans-serif;
+  font-size: 11pt;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active2, .accordion2:hover {
+  background-color: #FFFFFF;
+  text-decoration: underline;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel2 {
+  padding: 0 12px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+div.staff{
+	/*border-bottom: 1px dotted black;
+	//text-decoration: underline;*/
+	
+}
+
+input.nobox{
+	border: none;
+	background: transparent;
+	outline: none;
+	font-size: 9pt;
+}
+
+input.noboxlrg{
+	border: none;
+	background: transparent;
+	outline: none;
+	font-size: 10pt;
+}

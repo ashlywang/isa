@@ -1,0 +1,17 @@
+<div class='redheader'>
+
+<div>&nbsp;&nbsp;&nbsp;<a class='headertext' href='time.php'>
+{% if pagename=='time' %}<b>Time</b>{% else %}Time{% endif %}</a></div>
+
+<div>&nbsp;&nbsp;&nbsp;
+{% if config.is_super %}<a class='headertext' href='super.php'>{% endif %}
+{% if pagename=='super' %}<b>Supervisor</b>{% else %}Supervisor{% endif %}
+{% if config.is_super %}</a>{% endif %}
+</div>
+
+<div>&nbsp;&nbsp;&nbsp;<a class='headertext' href='admin.php'>
+{% if pagename=='admin' %}<b>Admin</b>{% else %}Admin{% endif %}</a></div>
+
+<div style='padding-left:30px; margin-bottom:3px;'><a style='text-decoration:none;' href='help_overview.php'><img alt='Help' align='top' src='images/help_blue_20.png'></a></div>
+
+</div>

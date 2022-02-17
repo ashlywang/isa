@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>{{ title }}</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+
+	<link rel="stylesheet" href="phone.css" >
+	
+	 
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  
+	  
+
+	</head>
+<body>
+
+{{ include('header.twig') }}
+<form name='adminform' action='admin.php' method='get'>
+<div class='ptitle' ><b>&nbsp;{{ title }}</b>
+<br><br>
+
+<input type='hidden' name='adminform' value='true'/>
+<select name='id' onChange='javascript: document.adminform.submit();'>
+{% autoescape false %}
+<option value='-1'>--Add New --</option>
+{{ options.jobs }}
+{% endautoescape %}
+</select>
+
+
+</div>
+</form>
+<div class='error'>{% if err %}{% autoescape false %}Error:{{ err }}{% endautoescape %}{% endif %}</div>
+
+{% if not authuser %}
+<p>You have not yet been registered.</p>
+{% endif %}
+
+<p></p>
+
+ 		<div id='resp-table' style='width:90%;'>
+ 			<div id='resp-table-body'>
+ 				<div class='row'>
+ 					<div class='cellnarrow' style='border:none;'>	
+ 						<form name='jobform' action='admin.php' method='get'>
+ 						 	<input type='hidden' name='userform' value='true' />	
+ 						 	<input type='hidden' name='id' value='{{ job.id }}' />
+ 						 	<table >
+ 						 		<tr><td>ID</td><td><input name='id2' type='text' readonly value='{{ job.id }}'/></td></tr>
+ 						 		<tr><td>Agency</td><td>
+	 						 		<select name='agency' id='agency'>
+		 						 		{% autoescape false %}{{ options.agency }}{% endautoescape %}
+	 						 		</select></td></tr>
+	 						 	<tr><td>Program</td><td><select name='program_id' id='program'>
+		 						 	{% autoescape false %}{{ options.program }}{% endautoescape %}
+	 						 	</select></td></tr>
+	 						 	<tr><td>Source</td><td><input name='source' type='text' value='{{ job.source }}'/></td></tr>
+	 						 	<tr><td>Competition Yr</td><td><input name='comp_year' type='text' value='{{ job.comp_year }}'/></td></tr>
+	 						 	<tr><td>Start Yr</td><td><input name='start_year' type='text' value='{{ job.start_year }}'/></td></tr>
+	 						 	<tr><td>End Yr</td><td><input name='end_year' type='text' value='{{ job.end_year }}'/></td></tr>
+	 						 	<tr><td>Lead</td><td>
+	 						 		<select name='lead_id' id='lead_id'>
+		 						 		{% autoescape false %}{{ options.people }}{% endautoescape %}
+	 						 		</select></td></tr>
+	 						 	<tr><td>Old Dept</td><td><input name='old_dept' type='text' value='{{ job.old_dept }}'/></td></tr>
+	 						 	<tr><td>Old Faculty</td><td><input name='old_faculty' type='text' value='{{ job.old_faculty }}'/></td></tr>
+	 						 	<tr><td>Department</td><td>
+	 						 		<select name='department' id='lead_id'>
+		 						 		{% autoescape false %}{{ options.dept_id }}{% endautoescape %}
+	 						 		</select></td></tr>
+	 						 	<tr><td>Faculty</td><td><input name='faculty_n' size='30' type='text' readonly value='{{ job.faculty_n }}'/></td></tr>
+	 						 	<tr><td>Pre Type</td><td><input name='pre_type' type='text' value='{{ job.pre_type }}'/></td></tr>
+	 						 	<tr><td>Post Type</td><td><input name='post_type' type='text' value='{{ job.post_type }}'/></td></tr>
+	 						 	<tr><td>Title</td><td><input name='title' type='text' size='60' value='{{ job.title }}'/></td></tr>
+	 						 	<tr><td>Post Title</td><td><input name='post_title' type='text' size='60' value='{{ job.post_title }}'/></td></tr>
+ 						 		<tr><td>Active?</td><td><input name='active' type='checkbox' {% if job.active == true %} checked {% endif %}/></td></tr>
+ 						 		<tr><td>Staff Orig</td><td><input name='staff' type='text' size='60' value='{{ job.staff }}'/></td></tr>
+ 						 		<tr><td>Staff Post</td><td><input name='post_staff' type='text' size='60' value='{{ job.post_staff }}'/></td></tr>
+
+ 						 		<tr><td>Staff</td>
+ 						 			<td>Add: <select name='staff_ids' id='staff_ids' onchange='document.jobform.submit();'>
+	 						 			{% autoescape false %}{{ options.staff }}{% endautoescape %}
+ 						 			</select>
+ 						 			<br /><br />
+ 						 			<input type='hidden' id='deletestaff' name='deletestaff' />
+ 						 			{% autoescape false %}{{ options.stafflist }}{% endautoescape %}
+ 						 			</td>
+ 						 		</tr>
+ 						 		<tr><td>Stages</td>
+ 						 			<td>Add: <select name='stage_ids' id='stage_ids' onchange='document.jobform.submit();'>
+	 						 			{% autoescape false %}{{ options.stages }}{% endautoescape %}
+ 						 			</select>
+ 						 			<br /><br />
+ 						 			<input type='hidden' id='deletestage' name='deletestage' />
+ 						 			{% autoescape false %}{{ options.stagelist }}{% endautoescape %}
+ 						 			</td>
+ 						 		</tr>
+ 						 		<tr><td>Types</td>
+ 						 			<td>Add: <select name='type_ids' id='type_ids' onchange='document.jobform.submit();'>
+	 						 			{% autoescape false %}{{ options.types }}{% endautoescape %}
+ 						 			</select>
+ 						 			<br /><br />
+ 						 			<input type='hidden' id='deletetype' name='deletetype' />
+ 						 			{% autoescape false %}{{ options.typeslist }}{% endautoescape %}
+ 						 			</td>
+ 						 		</tr>
+ 						 		<tr><td>Nominator</td><td>
+	 						 		<select name='nominator_id' id='nominator_id'>
+		 						 		{% autoescape false %}{{ options.nominator_id }}{% endautoescape %}
+	 						 		</select></td></tr>
+	 						 	<tr><td>Nominator (other)</td><td><input name='nominator' type='text' size='60' value='{{ job.nominator }}'/></td></tr>
+	 						 	<tr><td>Degree</td>
+ 						 			<td><select name='degree' id='degree'>
+	 						 			{% autoescape false %}{{ options.degree_options }}{% endautoescape %}
+ 						 			</select>
+ 						 			</td></tr>
+ 						 		<tr><td>Estimated Time</td><td><input name='est_time' type='text' size='60' value='{{ job.est_time }}'/></td></tr>
+ 						 		<tr><td>Post Est Time</td><td><input name='post_est_time' type='text' size='60' value='{{ job.post_est_time }}'/></td></tr>
+ 						 		<tr><td>Cost Recovery</td><td><input name='cost_recov' type='text' size='60' value='{{ job.cost_recov }}'/></td></tr>
+ 						 		<tr><td>Applic. Type</td><td><input name='app_type' type='text' size='60' value='{{ job.app_type }}'/></td></tr>
+
+	 						 	<tr><td>Deadline</td><td><input name='deadline' type='text' id='datepicker' value='{{job.deadline}}'/></td></tr>
+	 						 	<tr><td>Requested</td><td><input name='requested' type='text' value='{{job.requested}}'/></td></tr>
+	 						 	<tr><td>Awarded</td><td><input name='awarded' type='text' value='{{job.awarded}}'/></td></tr>
+ 						 		
+							</table>
+							<button class='nav1' style='color:#FF2222;' type='submit'>Save</button>
+ 						</form>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+
+
+
+
+
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+   
+  });
+} 
+
+</script>
+
+//<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+	  $(document).ready(function () {
+	  	$("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
+		});
+	  </script>	
+
+<script>
+$(document).ready(function(){
+    $("#agency").change(function(){
+        updatePrograms($(this).val());
+    });
+
+});
+
+$(document).ready(function loadPage() {
+  updatePrograms($("#agency").val());
+
+});
+
+function updatePrograms(agencyid){	
+    $.ajax({
+        url: 'get_programs.php',
+        type: 'post',
+        data: {agency:agencyid},
+        dataType: 'json',
+        success:function(response){
+            var len = response.length;               			
+			var orig=Number($("#program").val());			
+            $("#program").empty();
+            $("#program").append("<option value='0'></option>");
+            
+            for( var i = 0; i<len; i++){
+                var id = response[i]['id'];
+                var name = response[i]['name'];
+                if(orig == id) {
+                	$("#program").append("<option value='"+id+"' selected>"+name+"</option>");
+                }
+                else {
+	                $("#program").append("<option value='"+id+"'>"+name+"</option>");
+                }
+
+            }
+        }
+    });
+}
+
+function getStaff(){
+	$.ajax({
+        url: 'get_staff.php',
+        type: 'post',
+        dataType: 'json',
+        success:function(response){
+            var len = response.length;               			
+            $("#staff").empty();
+            $("#staff").append("<option value='0'></option>");
+            
+            for( var i = 0; i<len; i++){
+                var id = response[i]['id'];
+                var name = response[i]['lastname'] + ', ' + response[i]['firstname'];
+                $("#staff").append("<option value='"+id+"'>"+name+"</option>");
+            }
+        }
+    });
+
+}
+
+</script>
+
+<!--
+<script>
+jQuery(function($) {
+    var programs = {
+	    '3': ['Program 1', 'Program 2'],
+        'Germany': ['Duesseldorf', 'Leinfelden-Echterdingen', 'Eschborn'],
+        'Spain': ['Barcelona'],
+        'Hungary': ['Pecs'],
+        'USA': ['Downers Grove'],
+        'Mexico': ['Puebla'],
+        'South Africa': ['Midrand'],
+        'China': ['Beijing'],
+        'Russia': ['St. Petersburg'],
+    }
+
+    var $programs = $('#program');
+    $('#agency').change(function () {
+        var agency = $(this).val(), lcns = programs[agency] || [];
+
+        var html = $.map(lcns, function(lcn){
+            return '<option value="' + lcn + '">' + lcn + '</option>'
+        }).join('');
+        $programs.html(html)
+    });
+});
+</script>
+-->
+</body>
+</html>
