@@ -49,6 +49,22 @@ $configInfos["159.203.14.73"]["vendor"] = '/var/www/html/isa/vendor';
 $configInfos["159.203.14.73"]["templates"] = '/var/www/html/isa/templates';
 $configInfos["159.203.14.73"]["phpcas_path"] = '/var/www/html/isa/vendor/jasig/phpcas';
 
+//Digital Ocean
+$configInfos["sfuro.ca"]["host"] = '127.0.0.1';
+//$configInfos["vpr-db13.dc.sfu.ca"]["user"] = 'trevormon';
+//$configInfos["vpr-db13.dc.sfu.ca"]["pass"] = 'ilike!pasta&pizza33%';
+$configInfos["sfuro.ca"]["user"] = 'isa';
+$configInfos["sfuro.ca"]["pass"] = 'rilincetc';
+$configInfos["sfuro.ca"]["dbdriver"] = 'mysqli';
+$configInfos["sfuro.ca"]["dbname"] = 'isa';
+$configInfos["sfuro.ca"]["peardir"] = '/usr/lib/php';
+$configInfos["sfuro.ca"]["debug"] = false;
+$configInfos["sfuro.ca"]["url_root"] = 'http://sfuro.ca/isa';
+$configInfos["sfuro.ca"]["file_root"] = '/var/www/html/isa';
+$configInfos["sfuro.ca"]["vendor"] = '/var/www/html/isa/vendor';
+$configInfos["sfuro.ca"]["templates"] = '/var/www/html/isa/templates';
+$configInfos["sfuro.ca"]["phpcas_path"] = '/var/www/html/isa/vendor/jasig/phpcas';
+
 //CAS Info
 $cas_host = 'cas.sfu.ca';
 // Context of the CAS Server
