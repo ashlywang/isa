@@ -1,6 +1,7 @@
 <?php
 
 
+
 //Trevor local development
 $configInfos["localhost"]["host"] = '127.0.0.1';
 $configInfos["localhost"]["user"] = 'isa';
